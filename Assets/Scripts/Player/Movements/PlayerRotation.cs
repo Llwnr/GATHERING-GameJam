@@ -79,4 +79,13 @@ public class PlayerRotation : MonoBehaviour
     void RotateObject(float rotSpeed){
         transform.Rotate(new Vector3(0, rotSpeed, 0));
     }
+
+    //For showing the charged value
+    public float GetMaxCharge(){
+        return maxRotateSpeed;
+    }
+
+    public float GetCurrentCharge(){
+        return chargedRotSpeed;
+    }
 }
