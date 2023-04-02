@@ -4,6 +4,10 @@ using UnityEngine;
 
 public abstract class SubWeapon : MonoBehaviour, IDealDamage
 {
+    protected Transform myPlayer;
+    private void OnEnable() {
+        myPlayer = GameObject.FindWithTag("Player").transform;
+    }
     //Deam damage to target
     public void DamageTarget(float dmgAmt, Transform target){
         if(target.GetComponent<IDamagable>() != null && target.tag == "Enemy"){
