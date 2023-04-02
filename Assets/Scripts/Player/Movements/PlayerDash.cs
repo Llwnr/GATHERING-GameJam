@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerDash : MonoBehaviour
 {
@@ -56,6 +57,8 @@ public class PlayerDash : MonoBehaviour
         if(dashTimer < 0){
             ExitDash();
         }
+
+        
     }
 
     void Dash(Vector3 dir){

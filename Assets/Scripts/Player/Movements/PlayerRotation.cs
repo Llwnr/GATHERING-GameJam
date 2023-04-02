@@ -72,6 +72,7 @@ public class PlayerRotation : MonoBehaviour
         if(startRotation){
             //Start charged rotation 
             RotateObject(chargedRotSpeed);
+            //Slowdown charged rotation
             chargedRotSpeed -= Time.deltaTime*decrSpeed;
         }
     }
@@ -86,6 +87,10 @@ public class PlayerRotation : MonoBehaviour
     }
 
     public float GetCurrentCharge(){
+        return chargedRotSpeed;
+    }
+
+    public float GetChargedRotSpeed(){
         return chargedRotSpeed;
     }
 }
