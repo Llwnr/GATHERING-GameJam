@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: BasicEnemy
+  m_EditorClassIdentifier: 
+  rootNode:
+    rid: 3614958987913199627
+  nodes:
+  - rid: 3614958987913199627
+  - rid: 3614958987913199628
+  - rid: 3614958987913199633
+  - rid: 3614958987913199636
+  - rid: 3614958987913199638
+  - rid: 3614958987913199639
+  - rid: 3614958987913199640
+  treeState: 0
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+  viewPosition: {x: 213.6, y: 36.8, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: 3614958987913199627
+      type: {class: RootNode, ns: TheKiwiCoder, asm: KiwiCoder}
+      data:
+        state: 0
+        started: 0
+        guid: 847144f5-4239-4f80-b923-4031821ca5f8
+        position: {x: 0, y: 0}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 3614958987913199628
+    - rid: 3614958987913199628
+      type: {class: Repeat, ns: TheKiwiCoder, asm: KiwiCoder}
+      data:
+        state: 0
+        started: 0
+        guid: 4bbeece201febdf4a818e83b9744673c
+        position: {x: 0.2000122, y: 129.79999}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 3614958987913199633
+        restartOnSuccess: 1
+        restartOnFailure: 0
+    - rid: 3614958987913199633
+      type: {class: Sequencer, ns: TheKiwiCoder, asm: KiwiCoder}
+      data:
+        state: 0
+        started: 0
+        guid: 54953a9e729cf39408bb5819c8193b99
+        position: {x: -11.200012, y: 237.40001}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 3614958987913199636
+        - rid: 3614958987913199638
+        - rid: 3614958987913199640
+        - rid: 3614958987913199639
+    - rid: 3614958987913199636
+      type: {class: MoveToPlayer, ns: , asm: MainSc}
+      data:
+        state: 0
+        started: 0
+        guid: 13f19eecafa9ff8459d9f3d1557a282e
+        position: {x: -304.32465, y: 363.5956}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: 
+        drawGizmos: 0
+    - rid: 3614958987913199638
+      type: {class: MoveNearPlayerRadius, ns: , asm: MainSc}
+      data:
+        state: 0
+        started: 0
+        guid: 6896e5218a3989d4a9b7907d2c813293
+        position: {x: -144.6672, y: 364.87912}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: 
+        drawGizmos: 1
+        speed: 4
+        stoppingDistance: 4
+        updateRotation: 1
+        acceleration: 40
+        tolerance: 5
+        maxMoveTimer: 4
+    - rid: 3614958987913199639
+      type: {class: Wait, ns: TheKiwiCoder, asm: KiwiCoder}
+      data:
+        state: 0
+        started: 0
+        guid: b0271c6a6b5bebb49aafbcc100119f9d
+        position: {x: 182.78804, y: 359.033}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: 
+        drawGizmos: 0
+        duration: 2
+    - rid: 3614958987913199640
+      type: {class: Log, ns: TheKiwiCoder, asm: KiwiCoder}
+      data:
+        state: 0
+        started: 0
+        guid: 3a1d5952014e77445813288489b770bb
+        position: {x: 26.001417, y: 360.39563}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: 'Start
+
+'
+        drawGizmos: 0
+        message: Start AOE

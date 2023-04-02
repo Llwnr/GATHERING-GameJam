@@ -1,7 +1,9 @@
 {
     "name": "MainSc",
+    "rootNamespace": "",
     "references": [
-        "GUID:4307f53044263cf4b835bd812fc161a4"
+        "GUID:4307f53044263cf4b835bd812fc161a4",
+        "GUID:810c1e275d6002448ac35522410d3327"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
