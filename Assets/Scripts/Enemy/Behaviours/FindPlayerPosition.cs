@@ -4,7 +4,7 @@ using UnityEngine;
 using TheKiwiCoder;
 
 [System.Serializable]
-public class MoveToPlayer : ActionNode
+public class FindPlayerPosition : ActionNode
 {
     private Vector3 goalPos;
     private Transform transform;

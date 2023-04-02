@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: BossEnemy
+  m_EditorClassIdentifier: 
+  rootNode:
+    rid: 3614958990980808704
+  nodes:
+  - rid: 3614958990980808704
+  - rid: 3614958990980808705
+  - rid: 3614958990980808706
+  - rid: 3614958990980808716
+  - rid: 3614958990980808717
+  - rid: 3614958990980808718
+  - rid: 3614958990980808719
+  - rid: 3614958992244342784
+  treeState: 0
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+  viewPosition: {x: 202.4, y: -4.8, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: 3614958990980808704
+      type: {class: RootNode, ns: TheKiwiCoder, asm: KiwiCoder}
+      data:
+        state: 0
+        started: 0
+        guid: eb9a8d91-4212-4361-89c8-babb72040eed
+        position: {x: 0, y: 0}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 3614958990980808705
+    - rid: 3614958990980808705
+      type: {class: Repeat, ns: TheKiwiCoder, asm: KiwiCoder}
+      data:
+        state: 0
+        started: 0
+        guid: 0744466914af0da4a922db21a57c4729
+        position: {x: -2, y: 86.600006}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 3614958990980808706
+        restartOnSuccess: 1
+        restartOnFailure: 0
+    - rid: 3614958990980808706
+      type: {class: Sequencer, ns: TheKiwiCoder, asm: KiwiCoder}
+      data:
+        state: 0
+        started: 0
+        guid: 9aa9e045637eac442a42199455f2adc3
+        position: {x: -4, y: 180.79999}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 3614958990980808716
+        - rid: 3614958990980808719
+        - rid: 3614958992244342784
+        - rid: 3614958990980808718
+        - rid: 3614958990980808717
+    - rid: 3614958990980808716
+      type: {class: MoveNearPlayerRadius, ns: , asm: MainSc}
+      data:
+        state: 0
+        started: 0
+        guid: 0190d5b9cdedc224faa6082ac34ca2ba
+        position: {x: -233.45886, y: 315.35825}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: 
+        drawGizmos: 0
+        speed: 5
+        radiusToStopAt: 3
+        dashArea: 1
+    - rid: 3614958990980808717
+      type: {class: Wait, ns: TheKiwiCoder, asm: KiwiCoder}
+      data:
+        state: 0
+        started: 0
+        guid: 66bb48fb2bc4f5047a1e0b8db1ceb251
+        position: {x: 535.84576, y: 313.9165}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: 
+        drawGizmos: 0
+        duration: 1
+    - rid: 3614958990980808718
+      type: {class: Log, ns: TheKiwiCoder, asm: KiwiCoder}
+      data:
+        state: 0
+        started: 0
+        guid: 82c954097c673244eb56a79cf2c6bf54
+        position: {x: 377.55585, y: 321.28348}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: 
+        drawGizmos: 0
+        message: Aoe
+    - rid: 3614958990980808719
+      type: {class: JumpEnemy, ns: , asm: MainSc}
+      data:
+        state: 0
+        started: 0
+        guid: f659110b325e84242801bfd44ebc4f59
+        position: {x: -56.438953, y: 311.833}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: Makes enemy jump
+        drawGizmos: 0
+        jumpForce: 10
+        dashForce: 3
+    - rid: 3614958992244342784
+      type: {class: FallDash, ns: , asm: MainSc}
+      data:
+        state: 0
+        started: 0
+        guid: 3a247005a2dfcf046b749fb39c820e0d
+        position: {x: 119.84498, y: 312.6919}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: 
+        drawGizmos: 0
+        downForce: 16
