@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
@@ -7,3 +9,5 @@ namespace TheKiwiCoder {
         public new class UxmlFactory : UxmlFactory<SplitView, TwoPaneSplitView.UxmlTraits> { }
     }
 }
+
+#endif

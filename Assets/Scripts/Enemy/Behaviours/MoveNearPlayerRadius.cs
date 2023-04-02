@@ -25,6 +25,7 @@ public class MoveNearPlayerRadius : ActionNode {
     protected override State OnUpdate() {
         FindTargetPosition();
         float distance = Mathf.Abs(Vector3.Distance(goalPos, myTransform.position));
+        
         //If target is near radius then move to next step
         if(distance < radiusToStopAt){
             StartDash();
@@ -41,6 +42,9 @@ public class MoveNearPlayerRadius : ActionNode {
         goalPos = GameObject.FindWithTag("Player").transform.position;
         dir = (goalPos - myTransform.position).normalized;
         blackboard.moveToPosition = dir;
+        //Look at target
+        Quaternion lookAtTarget = Quaternion.LookRotation(goalPos - myTransform.position);
+        myTransform.rotation = Quaternion.Slerp(myTransform.rotation, lookAtTarget, Time.fixedDeltaTime);
     }
 
     void StartDash(){
