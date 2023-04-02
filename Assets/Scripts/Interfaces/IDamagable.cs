@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDealDamage
+public interface IDamagable
 {
-    void DamageTarget(float dmgAmt, Transform target);
+    void DealDamage(float dmgAmt);
 }

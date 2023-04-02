@@ -16,18 +16,6 @@ public class IncreaseScale : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.U)){
-            Debug.Log("U powerup");
-        }
-        if(Input.GetKeyDown(KeyCode.I)){
-            Debug.Log("I powerup");
-        }
-        if(Input.GetKeyDown(KeyCode.O)){
-            Debug.Log("O powerup");
-        }
-        if(Input.GetKeyDown(KeyCode.P)){
-            Debug.Log("P powerup");
-        }
         if(Input.GetKey(KeyCode.J)){
             if(parent.localPosition.x > xMaxScale) return;
             parent.localPosition = new Vector3(parent.localPosition.x+Time.deltaTime*5f, parent.localPosition.y, parent.localPosition.z);

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthManager : MonoBehaviour, IDealDamage
+public class HealthManager : MonoBehaviour, IDamagable
 {
     [SerializeField]private float hp;
     private float maxHp;
