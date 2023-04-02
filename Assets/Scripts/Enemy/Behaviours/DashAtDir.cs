@@ -21,6 +21,7 @@ public class DashAtDir : ActionNode
     }
 
     protected override void OnStop() {
+        myTransform.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     protected override State OnUpdate() {
@@ -30,9 +31,6 @@ public class DashAtDir : ActionNode
         if(dashDuration > 0){
             return State.Running;
         }
-
-        //Deactivate boulder
-        blackboard.myBoulder.SetActive(false);
         return State.Success;
     }
 }

@@ -32,18 +32,20 @@ public class GrowBoulder : ActionNode
     }
 
     protected override void OnStop() {
+        
     }
 
     protected override State OnUpdate() {
         //Look at target
         targetPos = GameObject.FindWithTag("Player").transform.position;
         Quaternion lookAtTarget = Quaternion.LookRotation(targetPos - myTransform.position);
-        myTransform.rotation = Quaternion.Slerp(myTransform.rotation, lookAtTarget, Time.fixedDeltaTime*0.5f);
+        myTransform.rotation = Quaternion.Slerp(myTransform.rotation, lookAtTarget, Time.fixedDeltaTime*0.8f);
         //Slowly grow the boulder
-        referencedBoulder.transform.localScale += Vector3.one*(Time.fixedDeltaTime*0.4f);
+        referencedBoulder.transform.localScale += Vector3.one*(Time.fixedDeltaTime);
         if(referencedBoulder.transform.localScale.z < maxScale){
             return State.Running;
         }
+        
         return State.Success;
     }
 }
