@@ -16,6 +16,7 @@ public class GrowBoulder : ActionNode
     
     protected override void OnStart() {
         myTransform = context.transform;
+        myTransform.GetComponent<Animator>().Play("Idle");
         
         
         //Make a boulder

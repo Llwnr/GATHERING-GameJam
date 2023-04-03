@@ -10,6 +10,7 @@ public class ShrinkBoulder : ActionNode
     
     protected override void OnStart() {
         myTransform = context.transform;
+        myTransform.GetComponent<Animator>().Play("Shake");
     }
 
     protected override void OnStop() {
