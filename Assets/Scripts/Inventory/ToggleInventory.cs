@@ -13,7 +13,7 @@ public class ToggleInventory : MonoBehaviour
         }
     }
 
-    void ToggleInventoryDisplay(){
+    public void ToggleInventoryDisplay(){
         GameObject child = transform.GetChild(0).gameObject;
         child.SetActive(!child.activeSelf);
     }

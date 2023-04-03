@@ -7,12 +7,12 @@ public class AttachWeaponManager : MonoBehaviour
     private SocketManager socketManager;
     private bool toAttach = false;
 
-    [SerializeField]private Transform weaponToAttach;
+    //[SerializeField]private Transform weaponToAttach;
 
     [SerializeField]private LayerMask layerMask;
 
     private void Awake() {
-        socketManager = GetComponent<SocketManager>();
+        socketManager = GameObject.FindWithTag("Player").GetComponent<SocketManager>();
     }
     // Update is called once per frame
     void Update()
@@ -29,10 +29,19 @@ public class AttachWeaponManager : MonoBehaviour
 
         if(toAttach && Input.GetMouseButtonDown(0)){
             toAttach = false;
+            //Notify that the weapon has been attached
+            IAfterWeaponAttached[] iWeaponAttached = GetComponents<IAfterWeaponAttached>();
+            foreach(IAfterWeaponAttached interfaceScript in iWeaponAttached){
+                interfaceScript.WeaponHasBeenAttached();
+            }
         }
 
         if(toAttach){
-            weaponToAttach.SetParent(socketManager.GetNearestSocket(mousePos), false);
+            transform.SetParent(socketManager.GetNearestSocket(mousePos), false);
         }
+    }
+
+    public void Attach(){
+        toAttach = true;
     }
 }

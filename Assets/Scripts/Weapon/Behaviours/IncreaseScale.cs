@@ -2,15 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IncreaseScale : MonoBehaviour
+public class IncreaseScale : MonoBehaviour, IAfterWeaponAttached
 {
     [SerializeField]private float xMaxScale;
     private float origYScale;
     private PlayerRotation playerRotation;
 
+    public void WeaponHasBeenAttached(){
+        SetPlayerRotationScript();
+    }
+
+    //Set player's rotation script after weapon is attached
+    public void SetPlayerRotationScript(){
+        playerRotation = transform.parent.transform.parent.GetComponent<PlayerRotation>();
+    }
+
     private void Awake() {
         origYScale = transform.localPosition.y;
-        playerRotation = transform.parent.transform.parent.GetComponent<PlayerRotation>();
+        if(transform.parent && transform.parent.transform.parent && transform.parent.transform.parent.GetComponent<PlayerRotation>() != null){
+            SetPlayerRotationScript();
+        }
     }
 
     // Update is called once per frame
