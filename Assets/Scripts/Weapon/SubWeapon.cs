@@ -5,8 +5,10 @@ using UnityEngine;
 public abstract class SubWeapon : MonoBehaviour, IDealDamage
 {
     protected Transform myPlayer;
+    protected float dmgToDeal;
     private void OnEnable() {
         myPlayer = GameObject.FindWithTag("Player").transform;
+        dmgToDeal = myPlayer.GetComponent<PlayerStats>().GetPlayerAttackStat();
     }
     //Deam damage to target
     public void DamageTarget(float dmgAmt, Transform target){
@@ -17,7 +19,7 @@ public abstract class SubWeapon : MonoBehaviour, IDealDamage
 
     //When weapon hits, activate its various effects
     private void OnTriggerEnter(Collider other) {
-        DamageTarget(5, other.transform);
+        DamageTarget(dmgToDeal, other.transform);
         OnWeaponHit();
     }
 

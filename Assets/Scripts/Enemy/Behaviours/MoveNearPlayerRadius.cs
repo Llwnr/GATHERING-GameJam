@@ -9,14 +9,18 @@ public class MoveNearPlayerRadius : ActionNode {
     public float speed;
     public float radiusToStopAt;
     public float dashForce;
+    public float maxMoveSpeed;
 
     private Transform myTransform;
+    private Rigidbody rb;
 
     private Vector3 goalPos;
     private Vector3 dir;
 
     protected override void OnStart() {
         myTransform = context.transform;
+        rb = myTransform.GetComponent<Rigidbody>();
+        rb.velocity = Vector3.zero;
     }
 
     protected override void OnStop() {
@@ -32,8 +36,9 @@ public class MoveNearPlayerRadius : ActionNode {
             return State.Success;
         }
 
-        Vector3 newPos = myTransform.position + dir*speed*Time.fixedDeltaTime;
-        myTransform.GetComponent<Rigidbody>().MovePosition(newPos);
+        
+        rb.AddForce(dir*speed, ForceMode.Force);
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxMoveSpeed);
 
         return State.Running;
     }

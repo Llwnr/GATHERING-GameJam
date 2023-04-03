@@ -29,11 +29,12 @@ MonoBehaviour:
   - rid: 3614958995805569027
   - rid: 3614958995805569028
   - rid: 3614958996479279104
+  - rid: 3614959012330078208
   treeState: 0
   blackboard:
     myBoulder: {fileID: 0}
     moveToPosition: {x: 0, y: 0, z: 0}
-  viewPosition: {x: 414.4, y: 41.6, z: 0}
+  viewPosition: {x: 99.2, y: 99.2, z: 0}
   viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
@@ -58,7 +59,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0744466914af0da4a922db21a57c4729
-        position: {x: 1.5800439, y: -183.36024}
+        position: {x: -6.4454823, y: -126.881996}
         blackboard:
           myBoulder: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -74,40 +75,42 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 9aa9e045637eac442a42199455f2adc3
-        position: {x: 317.5155, y: 162.29552}
+        position: {x: 480.51996, y: 154.35452}
         blackboard:
           myBoulder: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
         description: 
         drawGizmos: 0
         children:
+        - rid: 3614958990980808717
         - rid: 3614958990980808716
         - rid: 3614958990980808719
+        - rid: 3614959012330078208
         - rid: 3614958992244342784
         - rid: 3614958993619550208
-        - rid: 3614958990980808717
     - rid: 3614958990980808716
       type: {class: MoveNearPlayerRadius, ns: , asm: MainSc}
       data:
         state: 0
         started: 0
         guid: 0190d5b9cdedc224faa6082ac34ca2ba
-        position: {x: 87.91554, y: 296.69553}
+        position: {x: 176.51993, y: 284.75455}
         blackboard:
           myBoulder: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
         description: 
         drawGizmos: 0
-        speed: 7
+        speed: 50
         radiusToStopAt: 6
         dashForce: 7
+        maxMoveSpeed: 5
     - rid: 3614958990980808717
       type: {class: Wait, ns: TheKiwiCoder, asm: KiwiCoder}
       data:
         state: 0
         started: 0
         guid: 66bb48fb2bc4f5047a1e0b8db1ceb251
-        position: {x: 749.9925, y: 297.2398}
+        position: {x: 16.520002, y: 279.15445}
         blackboard:
           myBoulder: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -120,13 +123,13 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: f659110b325e84242801bfd44ebc4f59
-        position: {x: 265.51553, y: 293.4955}
+        position: {x: 350.11996, y: 285.55453}
         blackboard:
           myBoulder: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
         description: Makes enemy jump
         drawGizmos: 0
-        jumpForce: 10
+        jumpForce: 12
         dashForce: 3
     - rid: 3614958992244342784
       type: {class: FallDash, ns: , asm: MainSc}
@@ -134,7 +137,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 3a247005a2dfcf046b749fb39c820e0d
-        position: {x: 420.44003, y: 291.75507}
+        position: {x: 690.9199, y: 281.55453}
         blackboard:
           myBoulder: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -147,7 +150,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: fb5414ebc7b6719428928853be271511
-        position: {x: 595.1156, y: 295.0955}
+        position: {x: 850.9199, y: 279.15445}
         blackboard:
           myBoulder: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -168,24 +171,23 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
+        - rid: 3614958995805569028
         - rid: 3614958995805569026
         - rid: 3614958995805569027
         - rid: 3614958996479279104
-        - rid: 3614958995805569028
     - rid: 3614958995805569025
       type: {class: RandomSelector, ns: TheKiwiCoder, asm: KiwiCoder}
       data:
         state: 0
         started: 0
         guid: 94fd48ab876a9cf4dbfaa1990230c3f2
-        position: {x: -1.0200673, y: -77.08073}
+        position: {x: -0.79995745, y: -36.572872}
         blackboard:
           myBoulder: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
         description: 
         drawGizmos: 0
         children:
-        - rid: 3614958995646447618
         - rid: 3614958990980808706
     - rid: 3614958995805569026
       type: {class: GrowBoulder, ns: , asm: MainSc}
@@ -193,7 +195,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 1f8d26f8f44386c47a18f65d001f273e
-        position: {x: -814.39996, y: 291.92026}
+        position: {x: -558.9575, y: 287.97723}
         blackboard:
           myBoulder: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -201,28 +203,29 @@ MonoBehaviour:
         drawGizmos: 0
         boulder: {fileID: 6559798352986675398, guid: cc0d5b4f2b9230b438b944f6c9201966,
           type: 3}
-        maxScale: 4
+        maxScale: 5
     - rid: 3614958995805569027
       type: {class: DashAtDir, ns: , asm: MainSc}
       data:
         state: 0
         started: 0
         guid: 8f1b5624e6d53c94d9f867c1889e6ed0
-        position: {x: -655.3496, y: 292.4835}
+        position: {x: -399.7576, y: 288.77722}
         blackboard:
           myBoulder: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
         description: 
         drawGizmos: 0
-        dashForce: 50
-        maxDashDuration: 1.5
+        dashForce: 70
+        maxDashForce: 20
+        maxDashDuration: 2
     - rid: 3614958995805569028
       type: {class: Wait, ns: TheKiwiCoder, asm: KiwiCoder}
       data:
         state: 0
         started: 0
         guid: 6431ba77228e7464da65aa6551fb2a5b
-        position: {x: -324.00018, y: 293.59122}
+        position: {x: -725.32733, y: 285.4636}
         blackboard:
           myBoulder: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -235,9 +238,22 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: bdedccfde997c9743aad85f4d953543a
-        position: {x: -487.20007, y: 290.95383}
+        position: {x: -231.7576, y: 287.17725}
         blackboard:
           myBoulder: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
         description: 
         drawGizmos: 0
+    - rid: 3614959012330078208
+      type: {class: PauseEnemyFall, ns: , asm: MainSc}
+      data:
+        state: 0
+        started: 0
+        guid: 8b7df2015e9fe3e4e8dad80ce1c869d2
+        position: {x: 521.31995, y: 279.95456}
+        blackboard:
+          myBoulder: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: 
+        drawGizmos: 0
+        maxWaitDuration: 0.6

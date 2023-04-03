@@ -7,13 +7,17 @@ using TheKiwiCoder;
 public class DashAtDir : ActionNode
 {
     public float dashForce;
+    public float maxDashForce;
     public float maxDashDuration;
 
     private float dashDuration;
     private Transform myTransform;
     private Vector3 dirToMoveTo;
+
+    private Rigidbody rb;
     protected override void OnStart() {
         myTransform = context.transform;
+        rb = myTransform.GetComponent<Rigidbody>();
         dirToMoveTo = GameObject.FindWithTag("Player").transform.position - myTransform.position;
         dirToMoveTo = dirToMoveTo.normalized;
 
@@ -21,12 +25,13 @@ public class DashAtDir : ActionNode
     }
 
     protected override void OnStop() {
-        myTransform.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        rb.velocity *= 0.1f;
     }
 
     protected override State OnUpdate() {
         dashDuration -= Time.fixedDeltaTime;
-        myTransform.GetComponent<Rigidbody>().AddForce(dirToMoveTo * dashForce, ForceMode.Force);
+        rb.AddForce(dirToMoveTo * dashForce, ForceMode.Force);
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxDashForce);
 
         if(dashDuration > 0){
             return State.Running;

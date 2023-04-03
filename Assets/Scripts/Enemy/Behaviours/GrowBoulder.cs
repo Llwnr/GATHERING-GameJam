@@ -40,10 +40,10 @@ public class GrowBoulder : ActionNode
         //Look at target
         targetPos = GameObject.FindWithTag("Player").transform.position;
         Quaternion lookAtTarget = Quaternion.LookRotation(targetPos - myTransform.position);
-        myTransform.rotation = Quaternion.Slerp(myTransform.rotation, lookAtTarget, Time.fixedDeltaTime*0.8f);
+        myTransform.rotation = Quaternion.Slerp(myTransform.rotation, lookAtTarget, Time.fixedDeltaTime*3f);
         //Slowly grow the boulder
-        referencedBoulder.transform.localScale += Vector3.one*(Time.fixedDeltaTime);
-        if(referencedBoulder.transform.localScale.z < maxScale){
+        referencedBoulder.transform.localScale += new Vector3(1f,0.3f,0.5f)*(Time.fixedDeltaTime*1.6f);
+        if(referencedBoulder.transform.localScale.x < maxScale){
             return State.Running;
         }
         

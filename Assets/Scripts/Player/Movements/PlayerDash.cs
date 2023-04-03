@@ -39,8 +39,8 @@ public class PlayerDash : MonoBehaviour
         SetActiveMovement(false);
 
         //Store the dash direction
-        float hDir = Input.GetAxis("Horizontal");
-        float zDir = Input.GetAxis("Vertical");
+        float hDir = Input.GetAxisRaw("Horizontal");
+        float zDir = Input.GetAxisRaw("Vertical");
         dashDir = new Vector3(hDir, 0f, zDir);
         //Then set player as dashing
         isDashing = true;
