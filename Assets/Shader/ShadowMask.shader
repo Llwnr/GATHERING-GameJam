@@ -1,7 +1,7 @@
 Shader "Custom/ShadowMask"
 {
     SubShader{
-        Tags{"Queue" = "AlphaTest"}
+        Tags{"Queue" = "Transparent+1"}
 
         Pass{
             Blend Zero one

@@ -20,14 +20,13 @@ public class MaskWeapon : MonoBehaviour, IAfterWeaponAttached
     // Start is called before the first frame update
     void MaskObjects()
     {
-        objectToMask.GetComponent<MeshRenderer>().material.renderQueue = 2452;
+        objectToMask.GetComponent<MeshRenderer>().material.renderQueue = 3002;
     }
 
     private void Update() {
         if(isAttached){
             //Don't move the mask, but move the weapon forward for partly creation effect
             transform.position = savedPos;
-            Debug.Log(transform.position);
         }
     }
 
@@ -36,10 +35,11 @@ public class MaskWeapon : MonoBehaviour, IAfterWeaponAttached
     {
         if(isAttached)
             timer -= Time.deltaTime;
-        if(timer < -3){
-            //After 3 seconds after attaching, remove mask
+        if(timer < -1){
+            //some seconds after attaching, remove mask
             objectToMask.GetComponent<MeshRenderer>().material.renderQueue = default;
             gameObject.SetActive(false);
+            timer = 0;
         }            
     }
 }

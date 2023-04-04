@@ -17,15 +17,14 @@ public class JumpEnemy : ActionNode
         myTransform = context.transform;
         target = GameObject.FindWithTag("Player").transform;
         rb = myTransform.GetComponent<Rigidbody>();
-        rb.AddForce(new Vector3(0f, jumpForce, 0f), ForceMode.Impulse);
+        Vector3 dir = (target.position - myTransform.position).normalized;
+        rb.AddForce(new Vector3(dir.x, jumpForce, dir.z), ForceMode.Impulse);
     }
 
     protected override void OnStop() {
     }
 
     protected override State OnUpdate() {
-        //Continue moving quickly at the previous direction when jumping
-        rb.MovePosition(blackboard.moveToPosition.normalized*Time.fixedDeltaTime*dashForce + myTransform.position);
         //When player starts falling down, go to next step
         if(rb.velocity.y < -0.2f){
             Debug.Log("falling");
