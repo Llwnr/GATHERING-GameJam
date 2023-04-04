@@ -39,11 +39,14 @@ public class AttachWeaponManager : MonoBehaviour
                 interfaceScript.WeaponHasBeenAttached();
             }
 
+            //Set the socket as occupied
+            socketManager.RemoveFromSocket();
+
             //Don't want particle system to show up when choosing which socket to pick
             SetParticleSystemsActive(true);
         }
 
-        if(toAttach && !socketManager.NoSocketIsFree()){
+        if(toAttach){
             transform.SetParent(socketManager.GetNearestSocket(mousePos), false);
             SetParticleSystemsActive(false);
         }
