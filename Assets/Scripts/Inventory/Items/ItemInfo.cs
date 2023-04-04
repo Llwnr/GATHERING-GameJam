@@ -22,11 +22,6 @@ public class ItemInfo : MonoBehaviour
     }
 
     public void AttachOnClick(){
-        //Don't do anything when all sockets are occupied
-        if(GameObject.FindWithTag("Player").GetComponent<SocketManager>().NoSocketIsFree()){
-            Debug.Log("All sockets are occupied");
-            return;
-        }
         //Create the weapon and make it attach to socket
         GameObject weaponToAttach = Instantiate(itemData.itemObject, Vector3.zero, Quaternion.identity);
         weaponToAttach.GetComponent<AttachWeaponManager>().Attach();
