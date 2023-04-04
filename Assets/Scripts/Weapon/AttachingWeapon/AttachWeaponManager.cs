@@ -43,7 +43,7 @@ public class AttachWeaponManager : MonoBehaviour
             SetParticleSystemsActive(true);
         }
 
-        if(toAttach){
+        if(toAttach && !socketManager.NoSocketIsFree()){
             transform.SetParent(socketManager.GetNearestSocket(mousePos), false);
             SetParticleSystemsActive(false);
         }
