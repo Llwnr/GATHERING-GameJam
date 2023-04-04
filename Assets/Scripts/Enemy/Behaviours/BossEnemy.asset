@@ -36,7 +36,7 @@ MonoBehaviour:
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     myBoulder: {fileID: 0}
-  viewPosition: {x: 426.4, y: -28.8, z: 0}
+  viewPosition: {x: 520, y: 0.8, z: 0}
   viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
@@ -247,7 +247,7 @@ MonoBehaviour:
         drawGizmos: 0
         boulder: {fileID: 6559798352986675398, guid: cc0d5b4f2b9230b438b944f6c9201966,
           type: 3}
-        maxScale: 3
+        maxScale: 4
     - rid: 3614959041572503566
       type: {class: DashAtDir, ns: , asm: MainSc}
       data:
@@ -260,9 +260,9 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
-        dashForce: 10
-        maxDashForce: 25
-        maxDashDuration: 1.2
+        dashForce: 40
+        maxDashForce: 15
+        maxDashDuration: 2.5
     - rid: 3614959041572503567
       type: {class: ShrinkBoulder, ns: , asm: MainSc}
       data:
