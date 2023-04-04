@@ -31,17 +31,32 @@ public class AttachWeaponManager : MonoBehaviour
             toAttach = false;
             //Notify that the weapon has been attached
             IAfterWeaponAttached[] iWeaponAttached = GetComponents<IAfterWeaponAttached>();
+            IAfterWeaponAttached[] iWeaponAttachedChildren = GetComponentsInChildren<IAfterWeaponAttached>();
             foreach(IAfterWeaponAttached interfaceScript in iWeaponAttached){
                 interfaceScript.WeaponHasBeenAttached();
             }
+            foreach(IAfterWeaponAttached interfaceScript in iWeaponAttachedChildren){
+                interfaceScript.WeaponHasBeenAttached();
+            }
+
+            //Don't want particle system to show up when choosing which socket to pick
+            SetParticleSystemsActive(true);
         }
 
         if(toAttach){
             transform.SetParent(socketManager.GetNearestSocket(mousePos), false);
+            SetParticleSystemsActive(false);
         }
     }
 
     public void Attach(){
         toAttach = true;
+    }
+
+    void SetParticleSystemsActive(bool value){
+        foreach(ParticleSystem particleSystem in GetComponentsInChildren<ParticleSystem>()){
+            var emission = particleSystem.emission;
+            emission.enabled = value;
+        }
     }
 }
