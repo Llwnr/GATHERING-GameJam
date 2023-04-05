@@ -1,24 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Ink.Runtime;
-using UnityEngine.UI;
-using TMPro;
 
 public class PlayDialogue : MonoBehaviour
 {
     [SerializeField]private TextAsset textAsset;
-    [SerializeField]private TextMeshProUGUI textBox;
+    [SerializeField]private GameObject triggerCue;
 
-    private Story myStory;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+    private bool alreadyPlayed = false;
 
     // Update is called once per frame
     void Update()
     {
-        
+        //Only activate dialogue when player is in range
+        if(triggerCue.activeSelf && Input.GetKeyDown(KeyCode.Space)){
+            DialogueManager.instance.SetDialogue(textAsset);
+        }
     }
 }

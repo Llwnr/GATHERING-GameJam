@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class NotifyTriggerable : MonoBehaviour
 {
-    [SerializeField]private GameObject triggerBox;
+    [SerializeField]private GameObject triggerCue;
     // Start is called before the first frame update
     void Start()
     {
-        triggerBox.SetActive(false);
+        triggerCue.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other) {
         if(other.transform.tag == "Player"){
-            triggerBox.SetActive(true);
+            triggerCue.SetActive(true);
         }
     }
 
     private void OnTriggerExit(Collider other) {
         if(other.transform.tag == "Player"){
-            triggerBox.SetActive(false);
+            triggerCue.SetActive(false);
         }
     }
 }
