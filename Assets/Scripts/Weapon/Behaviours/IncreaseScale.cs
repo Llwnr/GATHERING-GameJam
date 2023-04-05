@@ -2,27 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IncreaseScale : MonoBehaviour
+public class IncreaseScale : MonoBehaviour, IAfterWeaponAttached
 {
-    private Transform parent;
     [SerializeField]private float xMaxScale;
     private float origYScale;
+    private PlayerRotation playerRotation;
+
+    public void WeaponHasBeenAttached(){
+        SetPlayerRotationScript();
+    }
+
+    //Set player's rotation script after weapon is attached
+    public void SetPlayerRotationScript(){
+        playerRotation = transform.parent.transform.parent.GetComponent<PlayerRotation>();
+    }
 
     private void Awake() {
-        parent = transform;
-        origYScale = parent.localPosition.y;
+        origYScale = transform.localPosition.y;
+        if(transform.parent && transform.parent.transform.parent && transform.parent.transform.parent.GetComponent<PlayerRotation>() != null){
+            SetPlayerRotationScript();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.J)){
-            if(parent.localPosition.y > xMaxScale) return;
-            parent.localPosition = new Vector3(parent.localPosition.x, parent.localPosition.y+Time.deltaTime*5f, parent.localPosition.z);
+        //Increase scale when player is charging
+        if(Input.GetKey(KeyCode.J) && playerRotation.GetIsPlayerChargingRot()){
+            if(transform.localPosition.y > xMaxScale) return;
+            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y+Time.deltaTime*5f, transform.localPosition.z);
         }
 
-        else if(parent.localPosition.y > origYScale && Mathf.Abs(parent.parent.transform.parent.GetComponent<PlayerRotation>().GetChargedRotSpeed())<3){
-            parent.localPosition = new Vector3(parent.localPosition.x, parent.localPosition.y-Time.deltaTime*5f, parent.localPosition.z);
+        //Decrease to normal scale after player's charge runs out
+        else if(transform.localPosition.y > origYScale && Mathf.Abs(playerRotation.GetChargedRotSpeed())<12){
+            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y-Time.deltaTime*5f, transform.localPosition.z);
         }
     }
 }

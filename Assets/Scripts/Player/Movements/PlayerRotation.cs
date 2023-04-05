@@ -93,4 +93,8 @@ public class PlayerRotation : MonoBehaviour
     public float GetChargedRotSpeed(){
         return chargedRotSpeed;
     }
+
+    public bool GetIsPlayerChargingRot(){
+        return chargingRotation;
+    }
 }
