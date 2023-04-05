@@ -13,7 +13,7 @@ public abstract class SubWeapon : MonoBehaviour, IDealDamage
     //Deam damage to target
     public void DamageTarget(float dmgAmt, Transform target){
         if(target.GetComponent<IDamagable>() != null && target.tag == "Enemy"){
-            target.GetComponent<IDamagable>().DealDamage(dmgAmt);
+            target.GetComponent<IDamagable>().DealDamage(25);
         }
     }
 
