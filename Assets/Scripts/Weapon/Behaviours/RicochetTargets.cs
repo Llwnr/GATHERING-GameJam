@@ -5,12 +5,12 @@ using System.Linq;
 
 public class RicochetTargets : MonoBehaviour
 {
+    [Header("Radius")]
     [SerializeField]private float range;
-    [SerializeField]private Transform nearestEnemy;
-    [SerializeField]private List<Transform> enemiesInRange = new List<Transform>();
+    private Transform nearestEnemy;
+    private List<Transform> enemiesInRange = new List<Transform>();
     private List<Transform> alreadyHitEnemies = new List<Transform>();
-    [SerializeField]private Vector3 rotateOffset;
-    [SerializeField]private float angle;
+    private float angle;
     // Start is called before the first frame update
     void Start()
     {
