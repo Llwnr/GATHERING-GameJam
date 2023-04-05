@@ -15,6 +15,10 @@ public class ManageItems : MonoBehaviour
     }
 
     public void RemoveItemFromInventory(SO_ItemData item){
+        int index = itemsData.IndexOf(item);
+        //Remove the object
+        Destroy(itemObj[index]);
+        itemObj.RemoveAt(index);
         itemsData.Remove(item);
     }
 

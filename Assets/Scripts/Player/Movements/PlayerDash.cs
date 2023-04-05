@@ -7,6 +7,9 @@ public class PlayerDash : MonoBehaviour
 {
     //Dashing is divided into start dash, is dashing, dash end
     [SerializeField]private float dashSpeed;
+    [SerializeField]private float maxDashSpeed;
+    [SerializeField]private float dashCooldown;
+    private float resetDashCooldown;
     [SerializeField]private float dashDuration;
     private float dashTimer;
 
@@ -17,14 +20,24 @@ public class PlayerDash : MonoBehaviour
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
+        ChangeBaseCooldown();
+    }
+
+    void ChangeBaseCooldown(){
+        resetDashCooldown = dashCooldown;
+    }
+    void ResetCooldown(){
+        dashCooldown = resetDashCooldown;
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        //To implement cooldown in dash
+        dashCooldown-=Time.deltaTime;
         //If player pressed dash key, start dashing
         bool dashKeyPressed = Input.GetKeyDown(KeyCode.K);
-        if(dashKeyPressed){
+        if(dashKeyPressed && dashCooldown <= 0){
             StartDash();
         }
     }
@@ -45,6 +58,8 @@ public class PlayerDash : MonoBehaviour
         //Then set player as dashing
         isDashing = true;
         dashTimer = dashDuration;
+        //Also reset cooldown
+        ResetCooldown();
     }
 
     void HandleDash(){
@@ -63,8 +78,8 @@ public class PlayerDash : MonoBehaviour
 
     void Dash(Vector3 dir){
         dir = dir.normalized;
-        Vector3 newPos = transform.position + (dir*dashSpeed*Time.fixedDeltaTime); 
-        rb.MovePosition(newPos);
+        rb.AddForce(dir*dashSpeed, ForceMode.Impulse);
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxDashSpeed);
     }
 
     void ExitDash(){
