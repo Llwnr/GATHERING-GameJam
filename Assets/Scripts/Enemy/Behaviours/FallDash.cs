@@ -30,7 +30,6 @@ public class FallDash : ActionNode
         
         //If object has stopped falling
         if(rb.velocity.y >= 0){
-            Debug.Log("Hit wall");
             return State.Success;
         }
         

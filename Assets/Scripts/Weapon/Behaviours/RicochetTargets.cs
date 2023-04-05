@@ -9,7 +9,6 @@ public class RicochetTargets : MonoBehaviour
     [SerializeField]private Transform nearestEnemy;
     [SerializeField]private List<Transform> enemiesInRange = new List<Transform>();
     private List<Transform> alreadyHitEnemies = new List<Transform>();
-    private Transform hitEnemy = null;
     [SerializeField]private Vector3 rotateOffset;
     [SerializeField]private float angle;
     // Start is called before the first frame update
@@ -19,7 +18,7 @@ public class RicochetTargets : MonoBehaviour
     }
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.R)){
+        if(Input.GetKeyDown(KeyCode.U)){
             StopAllCoroutines();
             alreadyHitEnemies.Clear();
             transform.localPosition = Vector3.zero;
@@ -55,8 +54,11 @@ public class RicochetTargets : MonoBehaviour
                 }
             }
         }
-        //Don't do anything if there's no enemy in range
-        if(nearestEnemy == null) yield break;    
+        //Make the projectile return to socket when there's no target
+        if(nearestEnemy == null){
+            StartCoroutine(ReturnToOrigPos());
+            yield break;
+        }
 
         //Move projectile near targeted enemy until it hits
         float waitTime = 0.5f;//Only wait for 0.5s per target
@@ -78,6 +80,22 @@ public class RicochetTargets : MonoBehaviour
                 break;
         }
         StartCoroutine(Ricochet());
+    }
+
+    IEnumerator ReturnToOrigPos(){
+        float distFromOrigPos = Vector3.Distance(transform.localPosition, Vector3.zero);
+        Vector3 dir = -transform.localPosition.normalized;
+        while(distFromOrigPos > 3f){
+            distFromOrigPos = Vector3.Distance(transform.localPosition, Vector3.zero);
+            //Manage angle
+            float angle = FindAngleToLookAt(nearestEnemy, dir);
+            transform.localEulerAngles = new Vector3(0, 0, -angle-90);
+
+            transform.localPosition += dir*Time.fixedDeltaTime*10f;
+            yield return null;
+        }
+        transform.localPosition = Vector3.zero;
+        Debug.Log("Has returned");
     }
 
     //Finds the correct angle for the weapon to rotate to

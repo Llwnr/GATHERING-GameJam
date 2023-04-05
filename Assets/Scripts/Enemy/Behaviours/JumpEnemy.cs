@@ -27,7 +27,6 @@ public class JumpEnemy : ActionNode
     protected override State OnUpdate() {
         //When player starts falling down, go to next step
         if(rb.velocity.y < -0.2f){
-            Debug.Log("falling");
             return State.Success;
         }
         //When target is right below, go to next state(Dash down)
