@@ -38,14 +38,14 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         currentTextAsset = textAsset;
+        if(currentStory == null){
+            currentStory = new Story(textAsset.text);
+        }
         //Don't change/reset the story when it is currently being read but just continue it
         if(currentStory != null){
             ContinueStory();
             return;
         }
-        currentStory = new Story(textAsset.text);
-        dialogueIsPlaying = true;
-        gameObject.SetActive(true);
         
     }
 
@@ -61,6 +61,8 @@ public class DialogueManager : MonoBehaviour
 
     void ContinueStory(){
         if(currentStory.canContinue){
+            dialogueIsPlaying = true;
+            gameObject.SetActive(true);
             textBox.text = currentStory.Continue();
         }else{
             ExitDialogue();
