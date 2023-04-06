@@ -6,7 +6,10 @@ public class SendToInventory : MonoBehaviour
 {
     [SerializeField]private ManageItems itemManager;
     [SerializeField]private SO_ItemData itemData;
-    private void OnMouseDown() {
-        itemManager.AddItemToInventory(itemData);
+    private void OnTriggerEnter(Collider other) {
+        if(other.transform.tag == "Player"){
+            itemManager.AddItemToInventory(itemData);
+            gameObject.SetActive(false);
+        }
     }
 }

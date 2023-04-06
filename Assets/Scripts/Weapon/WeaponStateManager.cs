@@ -17,10 +17,6 @@ public class WeaponStateManager : MonoBehaviour
         EvaluateStateBehaviours();
     }
 
-    private void Update() {
-        EvaluateStateBehaviours();
-    }
-
     void EvaluateStateBehaviours(){
         switch(equipState){
             case WeaponEquipState.isCollected:
@@ -40,6 +36,7 @@ public class WeaponStateManager : MonoBehaviour
 
     public void SetWeaponState(WeaponEquipState state){
         equipState = state;
+        EvaluateStateBehaviours();
     }
 
     private void OnTriggerEnter(Collider other) {
