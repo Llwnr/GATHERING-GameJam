@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager instance {get; private set;}
     private void Awake() {
         if(instance){
-            Debug.LogError("aMore than one dialogue manager class");
+            Debug.LogError("More than one dialogue manager class");
             return;
         }
         instance = this;
