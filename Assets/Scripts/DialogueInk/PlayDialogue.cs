@@ -7,8 +7,6 @@ public class PlayDialogue : MonoBehaviour
     [SerializeField]private TextAsset textAsset;
     [SerializeField]private GameObject triggerCue;
 
-    private bool alreadyPlayed = false;
-
     // Update is called once per frame
     void Update()
     {

@@ -11,7 +11,7 @@ public class EarthquakeDamage : MonoBehaviour, IDealDamage
 
     IEnumerator DisableSelf(){
         yield return new WaitForSeconds(0.5f);
-        gameObject.SetActive(false);
+        transform.parent.gameObject.SetActive(false);
     }
     private void OnTriggerEnter(Collider other) {
         if(other.tag == "Player"){

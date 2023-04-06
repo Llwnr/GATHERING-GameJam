@@ -11,11 +11,6 @@ public class RicochetTargets : MonoBehaviour
     private List<Transform> enemiesInRange = new List<Transform>();
     private List<Transform> alreadyHitEnemies = new List<Transform>();
     private float angle;
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine(Ricochet());
-    }
 
     private void Update() {
         if(Input.GetKeyDown(KeyCode.U)){
@@ -91,7 +86,7 @@ public class RicochetTargets : MonoBehaviour
             float angle = FindAngleToLookAt(nearestEnemy, dir);
             transform.localEulerAngles = new Vector3(0, 0, -angle-90);
 
-            transform.localPosition += dir*Time.fixedDeltaTime*10f;
+            transform.localPosition += dir*Time.fixedDeltaTime*30f;
             yield return null;
         }
         transform.localPosition = Vector3.zero;
