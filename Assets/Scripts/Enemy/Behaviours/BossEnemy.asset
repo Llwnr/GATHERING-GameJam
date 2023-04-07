@@ -36,7 +36,7 @@ MonoBehaviour:
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     myBoulder: {fileID: 0}
-  viewPosition: {x: 393.6, y: 109.6, z: 0}
+  viewPosition: {x: 499.2, y: -36.8, z: 0}
   viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
@@ -84,7 +84,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
-        - rid: 3614959041572503556
+        - rid: 3614959041572503555
     - rid: 3614959041572503555
       type: {class: Sequencer, ns: TheKiwiCoder, asm: Kiwii}
       data:
@@ -135,10 +135,10 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
-        speed: 20
+        speed: 50
         radiusToStopAt: 6
         dashForce: 5
-        maxMoveSpeed: 6
+        maxMoveSpeed: 7
     - rid: 3614959041572503558
       type: {class: JumpEnemy, ns: , asm: MainSc}
       data:

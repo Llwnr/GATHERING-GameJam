@@ -33,6 +33,9 @@ public class DashAtDir : ActionNode
         rb.AddForce(dirToMoveTo * dashForce, ForceMode.Force);
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxDashForce);
 
+        //Enable particle
+        blackboard.myBoulder.transform.GetChild(1).gameObject.SetActive(true);
+
         if(dashDuration > 0){
             return State.Running;
         }

@@ -10,8 +10,14 @@ public class EarthquakeDamage : MonoBehaviour, IDealDamage
     }
 
     IEnumerator DisableSelf(){
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<Collider>().enabled = false;
+        StartCoroutine(DestroySelf());
+    }
+
+    IEnumerator DestroySelf(){
         yield return new WaitForSeconds(1f);
-        transform.parent.gameObject.SetActive(false);
+        Destroy(transform.parent.gameObject);
     }
     private void OnTriggerEnter(Collider other) {
         if(other.tag == "Player"){

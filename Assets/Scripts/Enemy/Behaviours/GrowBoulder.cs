@@ -29,11 +29,11 @@ public class GrowBoulder : ActionNode
             referencedBoulder.SetActive(true);
             referencedBoulder.transform.localScale = new Vector3(1,1,1);
         }
-        
+        //Disable particle for now
+        referencedBoulder.transform.GetChild(1).gameObject.SetActive(false);
     }
 
     protected override void OnStop() {
-        
     }
 
     protected override State OnUpdate() {
