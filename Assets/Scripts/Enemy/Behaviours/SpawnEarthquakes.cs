@@ -16,7 +16,6 @@ public class SpawnEarthquakes : ActionNode
     }
 
     protected override State OnUpdate() {
-        
         return State.Success;
     }
 }
