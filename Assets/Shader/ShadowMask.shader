@@ -1,7 +1,10 @@
 Shader "Custom/ShadowMask"
 {
     SubShader{
-        Tags{"Queue" = "Transparent+1"}
+        Tags{"RenderType" = "Opaque" "Queue" = "Transparent+1"}
+
+        ColorMask 0
+        //ZWrite off
 
         Pass{
             Blend Zero one

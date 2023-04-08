@@ -6,7 +6,7 @@ public class BasicSubWeapon : SubWeapon
 {
     public override void OnWeaponHit()
     {
-        
+        Debug.Log("Hitt");
     }
 
     IEnumerator StopPlaying(){
