@@ -6,6 +6,8 @@ public abstract class SubWeapon : MonoBehaviour, IDealDamage
 {
     protected Transform myPlayer;
     protected float dmgToDeal;
+    [SerializeField]private float pushForce = 20;
+    protected float knockbackForce = 0;
     private void OnEnable() {
         myPlayer = GameObject.FindWithTag("Player").transform;
         dmgToDeal = myPlayer.GetComponent<PlayerStats>().GetPlayerAttackStat();
@@ -21,6 +23,9 @@ public abstract class SubWeapon : MonoBehaviour, IDealDamage
     private void OnTriggerEnter(Collider other) {
         if(other.transform.tag != "Enemy") return;
         DamageTarget(dmgToDeal, other.transform);
+        //More knockback force when rotation speed is higher
+        float rotSpeedPercentage = myPlayer.GetComponent<PlayerRotation>().GetRotationSpeedInPercent();
+        knockbackForce = pushForce * rotSpeedPercentage;
         OnWeaponHit(other.transform);
     }
 

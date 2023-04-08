@@ -94,6 +94,10 @@ public class PlayerRotation : MonoBehaviour
         return chargedRotSpeed;
     }
 
+    public float GetRotationSpeedInPercent(){
+        return (chargedRotSpeed/maxRotateSpeed);
+    }
+
     public bool GetIsPlayerChargingRot(){
         return chargingRotation;
     }

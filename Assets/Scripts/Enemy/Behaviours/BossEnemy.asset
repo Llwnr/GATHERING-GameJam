@@ -37,7 +37,7 @@ MonoBehaviour:
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     myBoulder: {fileID: 0}
-  viewPosition: {x: 211.2, y: 0.8, z: 0}
+  viewPosition: {x: 507.2, y: 4.8, z: 0}
   viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
