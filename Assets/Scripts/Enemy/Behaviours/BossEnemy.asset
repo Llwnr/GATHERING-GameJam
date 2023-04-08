@@ -32,11 +32,12 @@ MonoBehaviour:
   - rid: 3614959041572503566
   - rid: 3614959041572503567
   - rid: 3614959041572503568
+  - rid: 3614959120377184256
   treeState: 0
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     myBoulder: {fileID: 0}
-  viewPosition: {x: 499.2, y: -36.8, z: 0}
+  viewPosition: {x: 211.2, y: 0.8, z: 0}
   viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
@@ -85,6 +86,7 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 3614959041572503555
+        - rid: 3614959041572503556
     - rid: 3614959041572503555
       type: {class: Sequencer, ns: TheKiwiCoder, asm: Kiwii}
       data:
@@ -101,6 +103,7 @@ MonoBehaviour:
         - rid: 3614959041572503564
         - rid: 3614959041572503565
         - rid: 3614959041572503566
+        - rid: 3614959120377184256
         - rid: 3614959041572503567
         - rid: 3614959041572503568
     - rid: 3614959041572503556
@@ -225,7 +228,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 09b256074e9104746aa9750cad083431
-        position: {x: -882.83844, y: 537.00397}
+        position: {x: -922.62714, y: 536.8}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           myBoulder: {fileID: 0}
@@ -238,7 +241,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c89e966ad02f3954eaa2ead62e7b8a9e
-        position: {x: -725.2384, y: 533.80396}
+        position: {x: -765.0272, y: 533.6}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           myBoulder: {fileID: 0}
@@ -246,29 +249,29 @@ MonoBehaviour:
         drawGizmos: 0
         boulder: {fileID: 6559798352986675398, guid: cc0d5b4f2b9230b438b944f6c9201966,
           type: 3}
-        maxScale: 4
+        maxScale: 5.5
     - rid: 3614959041572503566
       type: {class: DashAtDir, ns: , asm: MainSc}
       data:
         state: 0
         started: 0
         guid: 69633625be09f8545aa3f059d79af5ce
-        position: {x: -568.9722, y: 530.21185}
+        position: {x: -609.0272, y: 530.39996}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
-        dashForce: 40
-        maxDashForce: 15
-        maxDashDuration: 2.5
+        dashForce: 55
+        maxDashForce: 20
+        maxDashDuration: 2
     - rid: 3614959041572503567
       type: {class: ShrinkBoulder, ns: , asm: MainSc}
       data:
         state: 0
         started: 0
         guid: 9dc7f2ee50195dd418c761d25df18c52
-        position: {x: -408.06238, y: 530.2437}
+        position: {x: -329.02713, y: 527.19995}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           myBoulder: {fileID: 0}
@@ -280,10 +283,22 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 4d2dc5ff5d36d154998bffe0ed81224d
-        position: {x: -250.88753, y: 537.58545}
+        position: {x: -174.62715, y: 530.39996}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
         duration: 1
+    - rid: 3614959120377184256
+      type: {class: StopEmitting, ns: , asm: MainSc}
+      data:
+        state: 0
+        started: 0
+        guid: eb0d3c19c9e9eb14ea5fe98f8aafffa1
+        position: {x: -469.82712, y: 534.39996}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          myBoulder: {fileID: 0}
+        description: 
+        drawGizmos: 0

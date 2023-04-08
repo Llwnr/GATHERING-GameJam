@@ -19,7 +19,7 @@ public class ShrinkBoulder : ActionNode
 
     protected override State OnUpdate() {
         
-        blackboard.myBoulder.transform.localScale -= new Vector3(1f, 0.3f, 0.7f) * Time.fixedDeltaTime*2f;
+        blackboard.myBoulder.transform.localScale -= new Vector3(1f, 0.3f, 0.7f) * Time.fixedDeltaTime*1.5f;
         if(blackboard.myBoulder.transform.localScale.x < 1){
             blackboard.myBoulder.SetActive(false);
             return State.Success;
