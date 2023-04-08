@@ -19,10 +19,11 @@ public abstract class SubWeapon : MonoBehaviour, IDealDamage
 
     //When weapon hits, activate its various effects
     private void OnTriggerEnter(Collider other) {
+        if(other.transform.tag != "Enemy") return;
         DamageTarget(dmgToDeal, other.transform);
-        OnWeaponHit();
+        OnWeaponHit(other.transform);
     }
 
     //Define what to activate when weapon hits. Such as, shield on weapon hit, atk up, speed up etc
-    public abstract void OnWeaponHit();
+    public abstract void OnWeaponHit(Transform target);
 }

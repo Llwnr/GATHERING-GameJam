@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class BasicSubWeapon : SubWeapon
 {
-    public override void OnWeaponHit()
+    [SerializeField]private float knockbackForce = 20;
+    public override void OnWeaponHit(Transform target)
     {
-        
+        Vector3 dir = target.position - GameObject.FindWithTag("Player").transform.position;
+        //Knockback
+        ImpactKnockback.Knockback(target, dir, knockbackForce);
     }
 
     IEnumerator StopPlaying(){
