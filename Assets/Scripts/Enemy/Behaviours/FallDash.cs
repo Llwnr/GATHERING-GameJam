@@ -29,7 +29,7 @@ public class FallDash : ActionNode
         if(timer > 0.5f) return State.Success;
         
         //If object has stopped falling
-        if(rb.velocity.y >= 0){
+        if(rb.velocity.y >= -0.01f){
             return State.Success;
         }
         

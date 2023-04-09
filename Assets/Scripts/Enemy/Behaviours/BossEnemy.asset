@@ -37,7 +37,7 @@ MonoBehaviour:
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     myBoulder: {fileID: 0}
-  viewPosition: {x: -29.6, y: -39.2, z: 0}
+  viewPosition: {x: 31.2, y: -49.6, z: 0}
   viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
@@ -85,6 +85,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
+        - rid: 3614959041572503555
         - rid: 3614959041572503556
     - rid: 3614959041572503555
       type: {class: Sequencer, ns: TheKiwiCoder, asm: Kiwii}
@@ -92,7 +93,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 5d03a1dd528857542811ba690dacac5f
-        position: {x: -545.2384, y: 399.40396}
+        position: {x: -552.0759, y: 392.20395}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           myBoulder: {fileID: 0}
@@ -140,7 +141,7 @@ MonoBehaviour:
         finalDashForce: 24
         radiusToStopAt: 4
         dashForce: 4
-        maxMoveSpeed: 7.5
+        maxMoveSpeed: 8
     - rid: 3614959041572503558
       type: {class: JumpEnemy, ns: , asm: MainSc}
       data:
@@ -181,7 +182,7 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
-        downForce: 20
+        downForce: 25
     - rid: 3614959041572503561
       type: {class: SpawnEarthquakes, ns: , asm: MainSc}
       data:
@@ -208,7 +209,7 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
-        duration: 1
+        duration: 0.5
     - rid: 3614959041572503563
       type: {class: Wait, ns: TheKiwiCoder, asm: Kiwii}
       data:
@@ -221,7 +222,7 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: Let player attack while enemy is recovering
         drawGizmos: 0
-        duration: 1.5
+        duration: 0.8
     - rid: 3614959041572503564
       type: {class: Wait, ns: TheKiwiCoder, asm: Kiwii}
       data:
@@ -234,7 +235,7 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
-        duration: 1
+        duration: 0.5
     - rid: 3614959041572503565
       type: {class: GrowBoulder, ns: , asm: MainSc}
       data:
@@ -249,7 +250,7 @@ MonoBehaviour:
         drawGizmos: 0
         boulder: {fileID: 6559798352986675398, guid: cc0d5b4f2b9230b438b944f6c9201966,
           type: 3}
-        maxScale: 5.5
+        maxScale: 5
     - rid: 3614959041572503566
       type: {class: DashAtDir, ns: , asm: MainSc}
       data:
@@ -289,7 +290,7 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
-        duration: 1
+        duration: 0.5
     - rid: 3614959120377184256
       type: {class: StopEmitting, ns: , asm: MainSc}
       data:
