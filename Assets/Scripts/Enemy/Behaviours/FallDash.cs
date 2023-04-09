@@ -26,7 +26,7 @@ public class FallDash : ActionNode
     protected override State OnUpdate() {
         //in case some glitch happens where the velocity is not 0 after landing
         timer += Time.fixedDeltaTime;
-        if(timer > 1) return State.Success;
+        if(timer > 0.5f) return State.Success;
         
         //If object has stopped falling
         if(rb.velocity.y >= 0){

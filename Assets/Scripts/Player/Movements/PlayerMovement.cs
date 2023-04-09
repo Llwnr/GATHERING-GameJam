@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void LimitMovespeed(){
+        //Player should not jump very high
+        if(rb.velocity.y > 2) rb.velocity = new Vector3(rb.velocity.x, 2, rb.velocity.y);
         Vector3 clampVelocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
         rb.velocity = new Vector3(clampVelocity.x, rb.velocity.y, clampVelocity.z);
         //Also slow down smoother

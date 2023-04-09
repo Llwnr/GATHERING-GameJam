@@ -6,7 +6,7 @@ using TheKiwiCoder;
 [System.Serializable]
 public class MoveNearPlayerRadius : ActionNode {
 
-    public float speed;
+    public float finalDashForce;
     public float radiusToStopAt;
     public float dashForce;
     public float maxMoveSpeed;
@@ -37,7 +37,7 @@ public class MoveNearPlayerRadius : ActionNode {
         }
 
         
-        rb.AddForce(dir*speed, ForceMode.Force);
+        rb.AddForce(dir*finalDashForce, ForceMode.Force);
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxMoveSpeed);
 
         return State.Running;

@@ -10,12 +10,6 @@ public class HealthManager : MonoBehaviour, IDamagable
     private void Awake() {
         maxHp = hp;
     }
-
-    public void ReduceHp(float amt){
-        hp -= amt;
-        if(hp < 0) hp = 0;
-    }
-
     public float GetCurrentHp(){
         return hp;
     }
@@ -25,5 +19,8 @@ public class HealthManager : MonoBehaviour, IDamagable
 
     public void DealDamage(float dmgAmt){
         hp -= dmgAmt;
+        if(hp<0){
+            gameObject.SetActive(false);
+        }
     }
 }
