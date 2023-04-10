@@ -34,8 +34,8 @@ public class PlayerRotation : MonoBehaviour
     }
 
     void CheckForHold(){
-        bool holdKeyPressed = Input.GetKey(KeyCode.J);
-        if(holdKeyPressed && !startRotation){
+        KeyCode rotateKey = KeyCode.Z;
+        if(Input.GetKey(rotateKey) && !startRotation){
             chargingRotation = true;
             //Increase charged rotation speed when you're pressing the charge button.
             //More charge = more rotation speed
@@ -47,7 +47,7 @@ public class PlayerRotation : MonoBehaviour
             //Reset charging rotation speed when not charging. 
             rotSpeedWhenCharging = maxHoldRotateSpeed;
         }
-        if(Input.GetKeyUp(KeyCode.J)){
+        if(Input.GetKeyUp(rotateKey)){
             startRotation = true;
         }
         

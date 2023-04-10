@@ -36,7 +36,7 @@ public class PlayerDash : MonoBehaviour
         //To implement cooldown in dash
         dashCooldown-=Time.deltaTime;
         //If player pressed dash key, start dashing
-        bool dashKeyPressed = Input.GetKeyDown(KeyCode.K);
+        bool dashKeyPressed = Input.GetKeyDown(KeyCode.X);
         if(dashKeyPressed && dashCooldown <= 0){
             StartDash();
         }

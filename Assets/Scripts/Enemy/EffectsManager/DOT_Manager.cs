@@ -42,7 +42,7 @@ public class DOT_Manager : MonoBehaviour
             currSlowTimer -= Time.deltaTime;
             //Slow down self
             Rigidbody rb = GetComponent<Rigidbody>();
-            rb.velocity *= 0.97f;
+            rb.velocity = new Vector3(rb.velocity.x*0.8f, rb.velocity.y, rb.velocity.z*0.8f);
         }
     }
 

@@ -37,7 +37,7 @@ MonoBehaviour:
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     myBoulder: {fileID: 0}
-  viewPosition: {x: 31.2, y: -49.6, z: 0}
+  viewPosition: {x: 384.8, y: 8, z: 0}
   viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
@@ -138,9 +138,9 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
-        finalDashForce: 24
+        moveForce: 60
         radiusToStopAt: 4
-        dashForce: 4
+        dashForce: 70
         maxMoveSpeed: 8
     - rid: 3614959041572503558
       type: {class: JumpEnemy, ns: , asm: MainSc}
@@ -154,9 +154,10 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
-        jumpForce: 15
-        maxJumpForce: 12
-        dashForce: 2
+        jumpForce: 100
+        maxJumpForce: 30
+        dashForce: 10
+        jumpHeight: 3
     - rid: 3614959041572503559
       type: {class: PauseEnemyFall, ns: , asm: MainSc}
       data:
@@ -169,7 +170,7 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
-        maxWaitDuration: 0.5
+        maxWaitDuration: 1
     - rid: 3614959041572503560
       type: {class: FallDash, ns: , asm: MainSc}
       data:
@@ -209,7 +210,7 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
-        duration: 0.5
+        duration: 1
     - rid: 3614959041572503563
       type: {class: Wait, ns: TheKiwiCoder, asm: Kiwii}
       data:
@@ -222,7 +223,7 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: Let player attack while enemy is recovering
         drawGizmos: 0
-        duration: 0.8
+        duration: 1
     - rid: 3614959041572503564
       type: {class: Wait, ns: TheKiwiCoder, asm: Kiwii}
       data:
@@ -290,7 +291,7 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
-        duration: 0.5
+        duration: 1
     - rid: 3614959120377184256
       type: {class: StopEmitting, ns: , asm: MainSc}
       data:

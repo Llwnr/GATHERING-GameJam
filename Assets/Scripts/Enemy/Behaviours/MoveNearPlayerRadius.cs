@@ -6,7 +6,7 @@ using TheKiwiCoder;
 [System.Serializable]
 public class MoveNearPlayerRadius : ActionNode {
 
-    public float finalDashForce;
+    public float moveForce;
     public float radiusToStopAt;
     public float dashForce;
     public float maxMoveSpeed;
@@ -36,8 +36,8 @@ public class MoveNearPlayerRadius : ActionNode {
             return State.Success;
         }
 
-        
-        rb.AddForce(dir*finalDashForce, ForceMode.Force);
+        //Move transform near player
+        rb.AddForce(dir*moveForce*Time.fixedDeltaTime*50, ForceMode.Force);
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxMoveSpeed);
 
         return State.Running;
@@ -54,6 +54,7 @@ public class MoveNearPlayerRadius : ActionNode {
 
     void StartDash(){
         myTransform.GetComponent<TrailRenderer>().emitting = true;
-        myTransform.GetComponent<Rigidbody>().AddForce(dir*dashForce, ForceMode.Impulse);
+        myTransform.GetComponent<Rigidbody>().AddForce(dir*dashForce*Time.fixedDeltaTime*50, ForceMode.Force);
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxMoveSpeed*1.6f);
     }
 }
