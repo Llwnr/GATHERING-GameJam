@@ -21,11 +21,16 @@ public class DashAtDir : ActionNode
         dirToMoveTo = GameObject.FindWithTag("Player").transform.position - myTransform.position;
         dirToMoveTo = dirToMoveTo.normalized;
 
+        //Disable slowdowns
+        myTransform.GetComponent<SlowDownManager>().enabled = false;
+
         dashDuration = maxDashDuration;
     }
 
     protected override void OnStop() {
         rb.velocity *= 0.1f;
+        //Enable slowdown effects
+        myTransform.GetComponent<SlowDownManager>().enabled = true;
     }
 
     protected override State OnUpdate() {

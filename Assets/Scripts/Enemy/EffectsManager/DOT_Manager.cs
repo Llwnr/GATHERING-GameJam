@@ -12,23 +12,13 @@ public class DOT_Manager : MonoBehaviour
     [SerializeField]private GameObject myBurningParticleParent;
     private ParticleSystem[] burningEffectParticles;
 
-    [Header("Slow Effect")]
-    private bool isFreezing = false;
-    [SerializeField]private float maxSlowTimer;
-    [SerializeField]private float currSlowTimer;
-
     private void Awake() {
         burningEffectParticles = myBurningParticleParent.GetComponentsInChildren<ParticleSystem>();
         ResetBurnTimer();
-        ResetFreezeTimer();
     }
 
     public void SetEnemyBurning(){
         isBurning = true;
-    }
-
-    public void SlowEnemyByFreeze(){
-        isFreezing = true;
     }
 
     private void Update() {
@@ -36,13 +26,6 @@ public class DOT_Manager : MonoBehaviour
             currBurnTimer -= Time.deltaTime;
             //Show enemy as burning
             SetEmission(true);
-        }
-
-        if(isFreezing){
-            currSlowTimer -= Time.deltaTime;
-            //Slow down self
-            Rigidbody rb = GetComponent<Rigidbody>();
-            rb.velocity = new Vector3(rb.velocity.x*0.8f, rb.velocity.y, rb.velocity.z*0.8f);
         }
     }
 
@@ -60,10 +43,6 @@ public class DOT_Manager : MonoBehaviour
             GetComponent<IDamagable>().DealDamage(3);
             ResetBurnTimer();
         }
-
-        if(currSlowTimer < 0){
-            ResetFreezeTimer();
-        }
     }
 
     void ResetBurnTimer(){
@@ -71,8 +50,5 @@ public class DOT_Manager : MonoBehaviour
         isBurning = false;
         SetEmission(false);
     }
-    void ResetFreezeTimer(){
-        currSlowTimer = maxSlowTimer;
-        isFreezing = false;
-    }
+    
 }

@@ -493,8 +493,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8980930331931842658, guid: 6cc2e784ee20349479c9a2c4f215e6a2,
         type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980930331931842658, guid: 6cc2e784ee20349479c9a2c4f215e6a2,
+        type: 3}
       propertyPath: CollisionModule.collisionMessages
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980930331931842658, guid: 6cc2e784ee20349479c9a2c4f215e6a2,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8980930331931842658, guid: 6cc2e784ee20349479c9a2c4f215e6a2,
         type: 3}

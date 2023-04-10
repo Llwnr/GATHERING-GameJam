@@ -15,7 +15,8 @@ public class ThrowSlash : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.J)){
-            Instantiate(vfxSlash, transform.position-new Vector3(0,0.5f,0), Quaternion.identity);
+            GameObject newSlash = Instantiate(vfxSlash, transform.position-new Vector3(0,0.5f,0), Quaternion.identity);
+            newSlash.transform.position = new Vector3(transform.position.x, 1.5f, transform.position.y);
         }
     }
 }
