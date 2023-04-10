@@ -5,6 +5,7 @@ using UnityEngine;
 public class OpenWallOnAttach : MonoBehaviour
 {
     [SerializeField]private GameObject[] sockets;
+    [SerializeField]private GameObject wallToOpen;
 
     private bool hasActivated = false;
 
@@ -12,7 +13,7 @@ public class OpenWallOnAttach : MonoBehaviour
     void Update()
     {
         for(int i=0; i<sockets.Length; i++){
-            if(sockets[i].transform.childCount > 0){
+            if(!hasActivated && sockets[i].transform.childCount > 0){
                 hasActivated = true;
                 OpenWall();
             }
@@ -20,6 +21,15 @@ public class OpenWallOnAttach : MonoBehaviour
     }
 
     void OpenWall(){
-        Debug.Log("Let Me INNNNN");
+        StartCoroutine(OpenWallGradually());
+    }
+
+    IEnumerator OpenWallGradually(){
+        int frames = 120;
+        while(frames > 0){
+            frames--;
+            wallToOpen.transform.position += new Vector3(0,0,5f)*Time.fixedDeltaTime;
+            yield return null;
+        }
     }
 }

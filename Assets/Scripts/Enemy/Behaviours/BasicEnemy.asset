@@ -151,4 +151,5 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         chargingDuration: 0.8
+        maxSpeed: 4
         reverseDashForce: 24
