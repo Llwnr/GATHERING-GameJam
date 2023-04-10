@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class ManageItems : MonoBehaviour
 {
+    public static ManageItems instance {get; private set;}
+    private void Awake() {
+        if(instance != null) Debug.LogError("More than one instance");
+        instance = this;
+        transform.parent.gameObject.SetActive(false);
+    }
     [SerializeField]private List<SO_ItemData> itemsData = new List<SO_ItemData>();
     [SerializeField]private GameObject itemPrefab;//Create this object
     private List<GameObject> itemObj = new List<GameObject>();

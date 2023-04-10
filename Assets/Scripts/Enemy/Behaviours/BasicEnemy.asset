@@ -122,7 +122,7 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
-        duration: 2
+        duration: 1
     - rid: 3614959170200535047
       type: {class: ShortDash, ns: , asm: MainSc}
       data:
@@ -135,9 +135,9 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
-        dashForce: 20
-        maxDashForce: 12
-        maxDashDuration: 0.8
+        dashForce: 21
+        maxDashForce: 14
+        maxDashDuration: 1
     - rid: 3614959170200535048
       type: {class: ChargingDash, ns: , asm: MainSc}
       data:
@@ -150,6 +150,6 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
-        chargingDuration: 0.8
+        chargingDuration: 0.4
         maxSpeed: 4
         reverseDashForce: 24

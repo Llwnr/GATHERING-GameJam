@@ -6,7 +6,7 @@ public class BlockDamage : MonoBehaviour, IDealDamage
 {
     private void OnTriggerEnter(Collider other) {
         if(other.tag == "Player"){
-            DamageTarget(8, other.transform);
+            DamageTarget(20, other.transform);
         }
     }
 
