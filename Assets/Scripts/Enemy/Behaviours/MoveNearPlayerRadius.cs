@@ -10,6 +10,7 @@ public class MoveNearPlayerRadius : ActionNode {
     public float radiusToStopAt;
     public float dashForce;
     public float maxMoveSpeed;
+    public bool toDashAtEnd = true;
 
     private Transform myTransform;
     private Rigidbody rb;
@@ -32,7 +33,7 @@ public class MoveNearPlayerRadius : ActionNode {
         
         //If target is near radius then move to next step
         if(distance < radiusToStopAt){
-            StartDash();
+            if(toDashAtEnd) StartDash();
             return State.Success;
         }
 

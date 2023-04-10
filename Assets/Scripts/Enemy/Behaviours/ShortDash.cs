@@ -4,7 +4,7 @@ using UnityEngine;
 using TheKiwiCoder;
 
 [System.Serializable]
-public class DashAtDir : ActionNode
+public class ShortDash : ActionNode
 {
     public float dashForce;
     public float maxDashForce;
@@ -21,8 +21,13 @@ public class DashAtDir : ActionNode
         dirToMoveTo = GameObject.FindWithTag("Player").transform.position - myTransform.position;
         dirToMoveTo = dirToMoveTo.normalized;
 
+        rb.velocity = Vector3.zero;
+        rb.AddForce(dirToMoveTo * dashForce, ForceMode.Impulse);
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxDashForce);
+
         //Disable slowdowns
         myTransform.GetComponent<SlowDownManager>().enabled = false;
+        myTransform.GetComponent<EffectReference>().EnableDashParticle();
 
         dashDuration = maxDashDuration;
     }
@@ -31,16 +36,11 @@ public class DashAtDir : ActionNode
         rb.velocity *= 0.1f;
         //Enable slowdown effects
         myTransform.GetComponent<SlowDownManager>().enabled = true;
+        myTransform.GetComponent<EffectReference>().DisableDashParticle();
     }
 
     protected override State OnUpdate() {
         dashDuration -= Time.fixedDeltaTime;
-        rb.AddForce(dirToMoveTo * dashForce, ForceMode.Force);
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxDashForce);
-
-        //Enable particle
-        if(blackboard.myBoulder)
-            blackboard.myBoulder.transform.GetChild(1).gameObject.SetActive(true);
 
         if(dashDuration > 0){
             return State.Running;

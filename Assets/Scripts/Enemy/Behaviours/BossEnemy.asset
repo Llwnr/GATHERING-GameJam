@@ -37,7 +37,7 @@ MonoBehaviour:
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     myBoulder: {fileID: 0}
-  viewPosition: {x: 490.4, y: 21.6, z: 0}
+  viewPosition: {x: 489.6, y: 43.2, z: 0}
   viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
@@ -154,9 +154,9 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
-        jumpForce: 100
+        jumpForce: 60
         maxJumpForce: 30
-        dashForce: 10
+        dashForce: 120
         jumpHeight: 3
     - rid: 3614959041572503559
       type: {class: PauseEnemyFall, ns: , asm: MainSc}
@@ -170,7 +170,7 @@ MonoBehaviour:
           myBoulder: {fileID: 0}
         description: 
         drawGizmos: 0
-        maxWaitDuration: 1
+        maxWaitDuration: 0.5
     - rid: 3614959041572503560
       type: {class: FallDash, ns: , asm: MainSc}
       data:
@@ -266,7 +266,7 @@ MonoBehaviour:
         drawGizmos: 0
         dashForce: 55
         maxDashForce: 20
-        maxDashDuration: 2
+        maxDashDuration: 1.5
     - rid: 3614959041572503567
       type: {class: ShrinkBoulder, ns: , asm: MainSc}
       data:

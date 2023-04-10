@@ -23,18 +23,26 @@ public class JumpEnemy : ActionNode
         myTransform = context.transform;
         target = GameObject.FindWithTag("Player").transform;
         rb = myTransform.GetComponent<Rigidbody>();
-        Vector3 dir = (target.position - myTransform.position).normalized;
+        Vector3 dir = target.position - myTransform.position;
         dir.y = 0f;
         //Stop falling before jumping for consistent jump force
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.y);
+        //Add jump force
         rb.AddForce(new Vector3(0, jumpForce*10f, 0), ForceMode.Force);
-        rb.AddForce(dir * dashForce, ForceMode.Impulse);
+        rb.AddForce(dir * dashForce, ForceMode.Force);
         
         currYHeight = myTransform.position.y;
         timer = 1f;
+
+        SetSlowEffectActive(false);
+    }
+
+    void SetSlowEffectActive(bool value){
+        myTransform.GetComponent<SlowDownManager>().enabled = value;
     }
 
     protected override void OnStop() {
+        SetSlowEffectActive(true);
     }
 
     protected override State OnUpdate() {
